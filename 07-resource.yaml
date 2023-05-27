@@ -9,10 +9,10 @@ spec:
     resources:
       requests:
         memory: "64Mi"
-        cpu: "2"
+        cpu: "0.1"
       limits:
         memory: "128Mi"
-        cpu: "4"
+        cpu: "0.2"
 
 # ---
 # # multi-container pod 
