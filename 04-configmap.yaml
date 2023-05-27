@@ -9,7 +9,7 @@ spec:
     command: ["sleep", "1000"]   
     envFrom:
      - configMapRef:
-          name: game-configmap
+        name: game-configmap
 
 
 apiVersion: v1
