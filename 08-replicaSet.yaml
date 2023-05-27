@@ -1,0 +1,27 @@
+#  Payment Pods Should minimum  3 and in case if the pod dies, it should come up automatically. 
+# I want to autoScale, like the CPU Utilization Of the Pods is > 75%, I want new pods be coming up.
+# And for autoScaling, you can mention, the number of pods can be in the range of 3 to 10.
+
+# ReplicaSet will solve all of it and will ensure at anytime the minimum number of pods is 3.
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
