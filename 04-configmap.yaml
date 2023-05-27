@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos-pod
+spec:
+  containers:
+  - name: centos-container
+    image: centos:7
+    command: ["sleep", "1000"]   
+    envFrom:
+     - configMapRef:
+          name: game-configmap
+
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-configmap
+data:
+  MONGODB_URL: "mongodb.robot.local"
+  MONGODB_USERNAME: "admin"
+  ENVIRONMENT: "dev"
+  DEV_CONTACT: "abc@xyz.com"
+   
