@@ -8,13 +8,16 @@ spec:
   - name: centos-container
     image: centos:7
     command: ["sleep", "1000"]
-    env:
-    - name: MONGODB_URL
-      value: "mongodb.robot.local"
-    - name: MONGODB_USERNAME
-      value: "admin"
-    - name: ENVIRONMENT
-      value: "dev"
-    - name: DEV_CONTACT
-      value: "abc@xyz.com"
+    # env:
+    # - name: MONGODB_URL
+    #   value: "mongodb.robot.local"
+    # - name: MONGODB_USERNAME
+    #   value: "admin"
+    # - name: ENVIRONMENT
+    #   value: "dev"
+    # - name: DEV_CONTACT
+    #   value: "abc@xyz.com"
+    envFrom:
+     - configMapRef:
+        name: game-configmap
     
