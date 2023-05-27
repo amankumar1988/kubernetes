@@ -12,6 +12,8 @@ spec:
         name: game-configmap
 
 
+
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -21,4 +23,17 @@ data:
   MONGODB_USERNAME: "admin"
   ENVIRONMENT: "dev"
   DEV_CONTACT: "abc@xyz.com"
-   
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    envFrom:
+     - configMapRef:
+        name: game-configmap
