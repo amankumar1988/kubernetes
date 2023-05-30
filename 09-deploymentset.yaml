@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment-svc
 spec:
   selector:
     app: nginx
